@@ -1,23 +1,26 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
-    [SerializeField] float levelLoadDelay = 2f; 
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
 
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] LevelLoader levelLoader;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
 
     bool isTransitioning = false;
     bool collisionDisabled = false;
 
-    void Start()
+    private void Start()
     {
          audioSource = GetComponent<AudioSource>();
+         levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+
     }
 
      void Update()
@@ -25,11 +28,12 @@ public class CollisionHandler : MonoBehaviour
         RespondToDebugKeys();
     }
 
-    void RespondToDebugKeys()
+    private void RespondToDebugKeys()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-        LoadNextLevel();
+        levelLoader.LoadNextLevel();
+        //LevelLoader.instance.LoadNextLevel();
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
@@ -37,7 +41,7 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
         if (isTransitioning || collisionDisabled) { return; }
         switch (other.gameObject.tag)
@@ -54,7 +58,7 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    void StartSuccessSequence()
+    private void StartSuccessSequence()
     {
         isTransitioning = true;
         audioSource.Stop();
@@ -62,10 +66,13 @@ public class CollisionHandler : MonoBehaviour
         successParticles.Play();
         // to do add particile effect upon sucess
         GetComponent<Movement>().enabled = false;
-        Invoke("LoadNextLevel", levelLoadDelay);
+
+        levelLoader.LoadNextLevel();
+        //GetComponent<LevelLoader>().LoadNextLevel();
+        //FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
 
-    void StartCrashSequence()
+    private void StartCrashSequence()
     {
         isTransitioning = true;
         audioSource.Stop();
@@ -73,22 +80,10 @@ public class CollisionHandler : MonoBehaviour
         crashParticles.Play();
         // to do add particile effect upon crash
         GetComponent<Movement>().enabled = false;
-        Invoke("ReloadLevel", levelLoadDelay);
-    }
-        void LoadNextLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
-        {
-            nextSceneIndex = 0;
-        }
-        SceneManager.LoadScene(nextSceneIndex);  
-    }
-    void ReloadLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);       
-    }
 
+        levelLoader.ReloadLevel();
+        //GetComponent<LevelLoader>().ReloadLevel();
+        //FindObjectOfType<LevelLoader>().ReloadLevel();
+
+    }
 }
