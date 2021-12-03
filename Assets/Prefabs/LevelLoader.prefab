@@ -65,10 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LEVEL 2
+  m_text: 'LOADING...
 
-
-    OVER'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -302,7 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 434432871900083324}
-  transitionTime: 2
+  transitionTime: 4
+  attemptCounter: {fileID: 2313375238525865001, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
 --- !u!1 &434432872809812399
 GameObject:
   m_ObjectHideFlags: 0

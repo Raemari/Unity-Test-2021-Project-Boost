@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
+    //This class is almost like my Game Manager
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
 
@@ -11,16 +12,17 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] LevelLoader levelLoader;
 
-    public AudioSource audioSource;
-
+    private AudioSource audioSource;
+    public GameObject rocket;
+    private float delayRocket = 1f;
     bool isTransitioning = false;
     bool collisionDisabled = false;
+
 
     private void Start()
     {
          audioSource = GetComponent<AudioSource>();
          levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
-
     }
 
      void Update()
@@ -66,8 +68,8 @@ public class CollisionHandler : MonoBehaviour
         successParticles.Play();
         // to do add particile effect upon sucess
         GetComponent<Movement>().enabled = false;
-
         levelLoader.LoadNextLevel();
+        LevelUnlocked();
         //GetComponent<LevelLoader>().LoadNextLevel();
         //FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
@@ -80,10 +82,32 @@ public class CollisionHandler : MonoBehaviour
         crashParticles.Play();
         // to do add particile effect upon crash
         GetComponent<Movement>().enabled = false;
-
         levelLoader.ReloadLevel();
+        Invoke("DisableRocket", delayRocket);
+        //StartCoroutine(WaitForRocketToDisable());
+
         //GetComponent<LevelLoader>().ReloadLevel();
         //FindObjectOfType<LevelLoader>().ReloadLevel();
-
+    }
+    private void LevelUnlocked()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        if(currentLevel >= PlayerPrefs.GetInt("levelIsUnlocked"))
+        {
+            //unlocks the current level
+            PlayerPrefs.SetInt("levelIsUnlocked", currentLevel + 1);
+        }
+        Debug.Log("LEVEL UNLOCKED");
+    }
+    private void DisableRocket()
+    {
+        if (rocket.activeInHierarchy)
+        {
+            rocket.SetActive(false);
+        }
+        else
+        {
+            rocket.SetActive(false);
+        }
     }
 }

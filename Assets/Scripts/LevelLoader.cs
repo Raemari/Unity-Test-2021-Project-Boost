@@ -7,16 +7,19 @@ public class LevelLoader : MonoBehaviour
 {
     //public static LevelLoader instance;
     public Animator transition;
-    public float transitionTime = 5f;
+    public float transitionTime = 4f;
+    public AttemptCounter attemptCounter;
 
   
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        //attemptCounter.GetComponent<AttemptCounter>().AttemptsCountsAdditional();
     }
     public void ReloadLevel()
     {
         StartCoroutine(WaitForReloadLevel(SceneManager.GetActiveScene().buildIndex));
+        attemptCounter.GetComponent<AttemptCounter>().AttemptsCountMinus();
     }
     IEnumerator LoadLevel(int levelIndex)
     {
@@ -30,5 +33,4 @@ public class LevelLoader : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
-
 }
