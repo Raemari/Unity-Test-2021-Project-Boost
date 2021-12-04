@@ -8,10 +8,14 @@ public class AttemptCounter : MonoBehaviour
 {
     public int numberOfAttempts = 5;
     public TextMeshProUGUI attemptText;
-    public GameObject gameOverCanvas;
-    public GameObject backCanvas;
+    public LevelLoader levelLoader;
 
-    private void FixedUpdate()
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
+    private void Update()
     {
         attemptText.text = "ATTEMPT:" + numberOfAttempts.ToString();
     }
@@ -21,22 +25,8 @@ public class AttemptCounter : MonoBehaviour
         numberOfAttempts -= 1;
         if (numberOfAttempts <= 0)
         {
-            GameOver();
-        }
-    }
-    // public void AttemptsCountsAdditional()
-    // {
-    //     numberOfAttempts += 1;
-    // }
-    public void GameOver()
-    {
-        if(numberOfAttempts == 0)
-        {
-            Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.None;
-            gameOverCanvas.SetActive(true);
-            backCanvas.SetActive(false);
-            //PlayerPrefs.DeleteAll();
+            Debug.Log("GAME OVER RUN");
+            levelLoader.GetComponent<LevelLoader>().ShowGameOverScreen();
         }
     }
 }

@@ -115,8 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfAttempts: 5
   attemptText: {fileID: 8230419325985772206}
-  gameOverCanvas: {fileID: 3405115448419865457, guid: f71053811543da945899700a8ba8bc2c, type: 3}
-  backCanvas: {fileID: 3304195524858203061, guid: 009c6666ace0f8541b8c58f7caac2c4b, type: 3}
+  levelLoader: {fileID: 3905072277727381152, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
 --- !u!1 &8230419325985772204
 GameObject:
   m_ObjectHideFlags: 0
