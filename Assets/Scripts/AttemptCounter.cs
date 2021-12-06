@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class AttemptCounter : MonoBehaviour
 {
-    public int numberOfAttempts = 5;
+    public int numberOfAttempts = 1;
     public TextMeshProUGUI attemptText;
     public LevelLoader levelLoader;
+
 
     private void Start()
     {
@@ -18,15 +19,22 @@ public class AttemptCounter : MonoBehaviour
     private void Update()
     {
         attemptText.text = "ATTEMPT:" + numberOfAttempts.ToString();
+        StartCoroutine(WaitForGameOverScreen());
     }
 
     public void AttemptsCountMinus()
     {
         numberOfAttempts -= 1;
-        if (numberOfAttempts <= 0)
+    }
+    IEnumerator WaitForGameOverScreen()
+    {
+        while(numberOfAttempts <= 0)
         {
-            Debug.Log("GAME OVER RUN");
             levelLoader.GetComponent<LevelLoader>().ShowGameOverScreen();
+            yield return new WaitForSeconds(2f);
+            Time.timeScale = 0;
+            Debug.Log("COROUTINE");
         }
+        yield return null;
     }
 }
