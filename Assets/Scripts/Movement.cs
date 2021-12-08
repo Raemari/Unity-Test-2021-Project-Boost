@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
 
      void ProcessThrust()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(GameManager.GM.thrust))
         {
             StartThrusting();
         }
@@ -46,11 +46,11 @@ public class Movement : MonoBehaviour
 
      void ProcessRotation()
     {
-     if (Input.GetKey(KeyCode.A))
+     if (Input.GetKey(GameManager.GM.left))
         {
             RotateLeft();
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(GameManager.GM.right))
         {
             RotateRight();
         }

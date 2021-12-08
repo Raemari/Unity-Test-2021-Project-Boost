@@ -3,19 +3,97 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public TMPro.TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown resolutionDropdown;
+    private Resolution[] resolutions;
 
-    Resolution[] resolutions;
+    private Transform menuPanel;
+    private Event keyEvent;
+    private TextMeshProUGUI buttonText;
+    private KeyCode newKey;
+    private bool waitingForKey;
+
 
     void Start()
     {
         resolutions = Screen.resolutions;
         ResolutionDropDown();
+        menuPanel = transform.Find("Panel");
+        waitingForKey = false;
+
+        for(int i = 0; i < menuPanel.childCount; i++) // iteration para mahanap yung children sa loob
+        {
+            Debug.Log(i);
+             //hinahanap yung child na May ganitong pangalan
+            if(menuPanel.GetChild(i).name == "ThrustKey")
+                menuPanel.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = GameManager.GM.thrust.ToString(); // setting the text kung ano i-seset mo
+            else if(menuPanel.GetChild(i).name == "LeftKey")
+                menuPanel.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = GameManager.GM.left.ToString();
+            else if(menuPanel.GetChild(i).name == "RightKey")
+                menuPanel.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = GameManager.GM.right.ToString();
+        }
     }
+    private void OnGUI()
+    {
+        //assigning the keys if we're only waitingforkey
+        keyEvent = Event.current;
+        if(keyEvent.isKey && waitingForKey)
+        {
+            newKey = keyEvent.keyCode;
+            waitingForKey = false;
+                        Debug.Log("ONGUI");
+        }
+    }
+    public void StartAssignment(string keyName)
+    {
+        if(!waitingForKey)
+        {
+            StartCoroutine(AssignKey(keyName));
+            Debug.Log("Start Asssignment");
+        }
+    }
+    public void SendText(TextMeshProUGUI text)
+    {
+        buttonText = text; //updates the text on the button that was clicked
+    }
+    IEnumerator WaitForKey()
+    {
+        while(!keyEvent.isKey)
+        yield return null;
+        Debug.Log("Wait for key");
+    }
+    public IEnumerator AssignKey(string keyName)
+    {
+        waitingForKey = true;
+        yield return WaitForKey();
+                    Debug.Log("Assign key");
+
+        switch(keyName)
+        {
+            case "thrust":
+                GameManager.GM.thrust = newKey;
+                buttonText.text = GameManager.GM.thrust.ToString();
+                PlayerPrefs.SetString("thrustKey", GameManager.GM.thrust.ToString());
+                            Debug.Log("switch case thurst");
+                break;
+            case "left":
+                GameManager.GM.left = newKey;
+                buttonText.text = GameManager.GM.left.ToString();
+                PlayerPrefs.SetString("leftKey", GameManager.GM.left.ToString());
+                break;
+            case "right":
+                GameManager.GM.right = newKey;
+                buttonText.text = GameManager.GM.right.ToString();
+                PlayerPrefs.SetString("rightKey", GameManager.GM.right.ToString());
+                break;
+        }
+        yield return null;
+    }
+
     public void ResolutionDropDown()
     {
         int currentResolutionIndex = 0;
