@@ -706,6 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 0}
   transitionTime: 4
+  attemptCounter: {fileID: 2313375238525865001, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
 --- !u!1 &8581137347426837488
 GameObject:
   m_ObjectHideFlags: 0
