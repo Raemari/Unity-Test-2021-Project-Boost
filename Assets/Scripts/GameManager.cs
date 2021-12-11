@@ -10,12 +10,8 @@ public class GameManager : MonoBehaviour
     public KeyCode thrust {get; set;}
     public KeyCode left {get; set;}
     public KeyCode right {get; set;}
-
-    //private bool areAllLevelsDone;
+    public AttemptCounter attemptCounter;
     public GameObject attemptCounterCanvas;
-    //private int firstTimeTofinish;
-    //private int levelsFinished;
-    //private int levelChecker;
     
 
     private void Awake()
@@ -33,23 +29,9 @@ public class GameManager : MonoBehaviour
         left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey", "A"));
         right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey", "D"));
     }
-
-    void Start()
+    private void Start() 
     {
-        //CheckIfFirstTimeToFinish();
-        //FinishedAllLevels();
-    }
-    void Update()
-    {
-        //FinishedAllLevels();
-        ClearPlayerPrefs();
-    }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            CheckIfFirstTimeToFinish();
-        }
+        attemptCounter = attemptCounterCanvas.GetComponent<AttemptCounter>();
     }
 
     public void CheckIfFirstTimeToFinish()
@@ -59,42 +41,42 @@ public class GameManager : MonoBehaviour
             Debug.Log("FIRST TIME TO FINISH");
             PlayerPrefs.SetInt("firstTimeToFinish", 0);
             ShowGameFinish();
-            DisableAttemptCounter();
+            AdditionalAttempts();
         }
         else
         {
+            ShowPlayAgain();
             Debug.Log("Already finished");
         }
     }
 
-    public void DisableAttemptCounter()
+    public void AdditionalAttempts()
     {
-        if(attemptCounterCanvas.activeInHierarchy)
-        {
-            attemptCounterCanvas.SetActive(false);
-            Debug.Log("DISABLE THE ATTEMPT COUNTER");
-        }
+        attemptCounter.AddNumberOfAttempts();
+        Debug.Log("ALl levels done, add attempt number");
     }
 
-    // private void FinishedAllLevels() // parang nonsense ahhaa
-    // {
-    //     if(levelChecker == 5)
-    //     {
-    //         levelChecker = levelsFinished;
-    //         areAllLevelsDone = true;
-    //         Debug.Log("FINISHED THE GAMe");
-    //     }
-    // }
     private void ShowGameFinish()
     {
         SceneManager.LoadScene(7); // finish game scene
     }
-    public void ClearPlayerPrefs()
+    private void ShowPlayAgain()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            PlayerPrefs.DeleteAll();
-            Debug.Log("DELETE ALL PLAYERPREFS");
-        }
+        SceneManager.LoadScene(8); //Play again scene
+    }
+    public void ShowGameOverScreen()
+    {
+        SceneManager.LoadScene(6);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        Reset();
+    }
+    public void Reset()
+    {
+        //If back to main menu is clicked
+        Time.timeScale = 1;
+        PlayerPrefs.DeleteAll();
+        Debug.Log("RESET ACTIVATED");
+        attemptCounter.SetOriginalAttemptNumber();
     }
 }

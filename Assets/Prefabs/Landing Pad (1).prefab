@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 1951232673518619696}
   - component: {fileID: 4117013430502796423}
   - component: {fileID: 6440008267028404949}
+  - component: {fileID: 3444055451958857767}
   m_Layer: 0
   m_Name: Landing Pad (1)
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4175399312038258610
 Transform:
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 623683123946714211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.61, y: 2, z: 0.34046745}
-  m_LocalScale: {x: 1.7086799, y: 0.5, z: 2.23104}
+  m_LocalScale: {x: 3, y: 0.5, z: 3}
   m_Children:
   - {fileID: 4132017167722370031}
   m_Father: {fileID: 0}
@@ -112,6 +113,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVector: {x: 4, y: 0, z: 0}
   period: 1
+--- !u!114 &3444055451958857767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623683123946714211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be78de692ded8f74a9f54ab4db3ee4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attemptCounterCanvas: {fileID: 8230419325694151351, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
 --- !u!1 &5510654836840191420
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +141,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4132017167722370031
 Transform:

@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfAttempts: 3
   attemptText: {fileID: 8230419325985772206}
-  levelLoader: {fileID: 0}
+  levelLoader: {fileID: 3905072277727381152, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
 --- !u!1 &8230419325985772204
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,8 +150,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27.6, y: -14.81}
-  m_SizeDelta: {x: 70.45999, y: 22.200012}
+  m_AnchoredPosition: {x: -34.24, y: -14.81}
+  m_SizeDelta: {x: 100, y: 22.200012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8230419325985772201
 CanvasRenderer:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATTEMPT: #'
+  m_text: 'ATTEMPT: ##'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

@@ -2722,6 +2722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be78de692ded8f74a9f54ab4db3ee4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attemptCounterCanvas: {fileID: 0}
 --- !u!4 &1873243305
 Transform:
   m_ObjectHideFlags: 0

@@ -9,21 +9,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 4d1269108cca1a64a81b1c0ffa058219
   - enabled: 1
-    path: Assets/Scenes/Over.unity
+    path: Assets/Scenes/Lvl1-Over.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Under.unity
+    path: Assets/Scenes/Lvl2-Under.unity
     guid: 1ffef70299647e9438840d4066ea49d8
   - enabled: 1
-    path: Assets/Scenes/In Between.unity
+    path: Assets/Scenes/Lvl3-In Between.unity
     guid: 9eac5fb5fa4ddda43a21cdad404113bc
   - enabled: 1
-    path: Assets/Scenes/Absolute Darkness.unity
+    path: Assets/Scenes/LVL4-Absolute Darkness.unity
     guid: ace88881f51690346810b593d2cdcf83
   - enabled: 1
-    path: Assets/Scenes/Behind the pillars.unity
+    path: Assets/Scenes/LVL5-Behind the pillars.unity
     guid: c0d7c8d39636240439352294baba8f17
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Scenes/Menu-GameOver.unity
     guid: 362bda1ff5a993a43b410434fbaa65b0
+  - enabled: 1
+    path: Assets/Scenes/Menu-GameFinish.unity
+    guid: c92ef05e67dc57344af8bed3fd3dba34
+  - enabled: 1
+    path: Assets/Scenes/Menu-PlayAgain.unity
+    guid: 15e27f9799d09de459d6a5efd0efeecf
   m_configObjects: {}

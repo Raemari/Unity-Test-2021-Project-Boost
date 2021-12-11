@@ -54,6 +54,9 @@ public class CollisionHandler : MonoBehaviour
             case "Finish":
                 StartSuccessSequence();
                 break;
+            case "End":
+                GameManager.GM.CheckIfFirstTimeToFinish();
+                break;
             default:
                 StartCrashSequence();
                 break;

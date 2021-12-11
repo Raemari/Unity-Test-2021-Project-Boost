@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be78de692ded8f74a9f54ab4db3ee4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attemptCounter: {fileID: 2313375238525865001, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
   attemptCounterCanvas: {fileID: 8230419325694151351, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}

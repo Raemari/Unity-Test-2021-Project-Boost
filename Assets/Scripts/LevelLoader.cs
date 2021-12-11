@@ -17,6 +17,7 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(WaitForReloadLevel(SceneManager.GetActiveScene().buildIndex));
         attemptCounter.GetComponent<AttemptCounter>().AttemptsCountMinus();
+        //AttemptCounter.AC.AttemptsCountMinus();
     }
     IEnumerator LoadLevel(int levelIndex)
     {
@@ -29,19 +30,5 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-    }
-    public void ShowGameOverScreen()
-    {
-        SceneManager.LoadScene(6);
-        Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.None;
-        Reset();
-    }
-    public void Reset()
-    {
-        //If back to main menu is clicked
-        Time.timeScale = 1;
-        PlayerPrefs.DeleteAll();
-        Debug.Log("RESET ACTIVATED");
     }
 }

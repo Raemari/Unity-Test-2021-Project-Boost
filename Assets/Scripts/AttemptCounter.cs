@@ -21,16 +21,24 @@ public class AttemptCounter : MonoBehaviour
         attemptText.text = "ATTEMPT:" + numberOfAttempts.ToString();
         StartCoroutine(WaitForGameOverScreen());
     }
+    public void SetOriginalAttemptNumber()
+    {
+        numberOfAttempts = 3;
+    }
 
     public void AttemptsCountMinus()
     {
         numberOfAttempts -= 1;
     }
+    public void AddNumberOfAttempts()
+    {
+        numberOfAttempts += 5;
+    }
     IEnumerator WaitForGameOverScreen()
     {
         while(numberOfAttempts <= 0)
         {
-            levelLoader.GetComponent<LevelLoader>().ShowGameOverScreen();
+            GameManager.GM.ShowGameOverScreen();
             yield return new WaitForSeconds(2f);
             Time.timeScale = 0;
             Debug.Log("COROUTINE");
