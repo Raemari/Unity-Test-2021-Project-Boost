@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class AttemptCounter : MonoBehaviour
 {
-    public int numberOfAttempts = 3;
+    public int numberOfAttempts = 10;
     public TextMeshProUGUI attemptText;
     public LevelLoader levelLoader;
 

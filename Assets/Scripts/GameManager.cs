@@ -29,14 +29,21 @@ public class GameManager : MonoBehaviour
         left = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey", "A"));
         right = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey", "D"));
     }
-    private void Start() 
+    private void Start()
     {
         attemptCounter = attemptCounterCanvas.GetComponent<AttemptCounter>();
     }
 
     public void CheckIfFirstTimeToFinish()
     {
-        if (PlayerPrefs.GetInt("firstTimeToFinish", 1) == 1)
+        // if (PlayerPrefs.GetInt("firstTimeToFinish", 1) == 1)
+        // {
+        //     Debug.Log("FIRST TIME TO FINISH");
+        //     PlayerPrefs.SetInt("firstTimeToFinish", 0);
+        //     ShowGameFinish();
+        //     AdditionalAttempts();
+        // }
+        if(!PlayerPrefs.HasKey("firstTimeToFinish"))
         {
             Debug.Log("FIRST TIME TO FINISH");
             PlayerPrefs.SetInt("firstTimeToFinish", 0);

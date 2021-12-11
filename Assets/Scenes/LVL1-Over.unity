@@ -2350,6 +2350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 434432872085127909, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
 --- !u!4 &1562575603 stripped
@@ -2722,6 +2726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be78de692ded8f74a9f54ab4db3ee4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attemptCounter: {fileID: 0}
   attemptCounterCanvas: {fileID: 0}
 --- !u!4 &1873243305
 Transform:
