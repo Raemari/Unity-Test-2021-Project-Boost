@@ -35,7 +35,7 @@ public class CollisionHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
         levelLoader.LoadNextLevel();
-        //LevelLoader.instance.LoadNextLevel();
+        LevelUnlocked();
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {

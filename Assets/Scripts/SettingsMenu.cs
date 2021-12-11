@@ -27,7 +27,6 @@ public class SettingsMenu : MonoBehaviour
 
         for(int i = 0; i < menuPanel.childCount; i++) // iteration para mahanap yung children sa loob
         {
-            Debug.Log(i);
              //hinahanap yung child na May ganitong pangalan
             if(menuPanel.GetChild(i).name == "ThrustKey")
                 menuPanel.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = GameManager.GM.thrust.ToString(); // setting the text kung ano i-seset mo
