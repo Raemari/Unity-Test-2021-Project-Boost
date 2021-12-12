@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
-    //This class is almost like my Game Manager
-    [SerializeField] AudioClip success;
-    [SerializeField] AudioClip crash;
+    // [SerializeField] AudioClip success;
+    // [SerializeField] AudioClip crash;
 
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] LevelLoader levelLoader;
 
-    private AudioSource audioSource;
+    // private AudioSource audioSource;
     public GameObject rocket;
     private float delayRocket = 1f;
     bool isTransitioning = false;
@@ -21,7 +20,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void Start()
     {
-         audioSource = GetComponent<AudioSource>();
+         //audioSource = GetComponent<AudioSource>();
          levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
     }
 
@@ -66,32 +65,25 @@ public class CollisionHandler : MonoBehaviour
     private void StartSuccessSequence()
     {
         isTransitioning = true;
-        audioSource.Stop();
-        audioSource.PlayOneShot(success);
         successParticles.Play();
+        GameManager.GM.PlaySuccessSound();
         // to do add particile effect upon sucess
         GetComponent<Movement>().enabled = false;
         levelLoader.LoadNextLevel();
         LevelUnlocked();
-        //GetComponent<LevelLoader>().LoadNextLevel();
-        //FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
 
     private void StartCrashSequence()
     {
         isTransitioning = true;
-        audioSource.Stop();
-        audioSource.PlayOneShot(crash);
         crashParticles.Play();
+        GameManager.GM.PlayCrashSound();
         // to do add particile effect upon crash
         GetComponent<Movement>().enabled = false;
         levelLoader.ReloadLevel();
         Invoke("DisableRocket", delayRocket);
-        //StartCoroutine(WaitForRocketToDisable());
-
-        //GetComponent<LevelLoader>().ReloadLevel();
-        //FindObjectOfType<LevelLoader>().ReloadLevel();
     }
+    
     private void LevelUnlocked()
     {
         int currentLevel = SceneManager.GetActiveScene().buildIndex;

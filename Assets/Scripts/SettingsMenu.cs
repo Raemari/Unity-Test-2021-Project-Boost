@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour
@@ -119,6 +118,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {   //the string volume corresponds to the naming of exposed parameter for Audio Mixer
         audioMixer.SetFloat("Volume", volume);
+        Debug.Log("SOUND ADJUST");
     }
     public void SetQuality (int qualityIndex)
     {

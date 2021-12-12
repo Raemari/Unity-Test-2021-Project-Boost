@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19d1148274fc3a4a977db032f97a7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAttempts: 3
+  numberOfAttempts: 10
   attemptText: {fileID: 8230419325985772206}
   levelLoader: {fileID: 3905072277727381152, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
 --- !u!1 &8230419325985772204

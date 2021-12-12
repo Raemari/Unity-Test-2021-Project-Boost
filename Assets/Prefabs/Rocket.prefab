@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainThrust: 1000
-  rotationThrust: 300
+  rotationThrust: 100
   mainEngine: {fileID: 8300000, guid: 23153161444dfb949a48e98898924087, type: 3}
   mainEngineParticles: {fileID: 3966909558902513399}
   leftThrustParticles: {fileID: 15144934350826241}
@@ -544,7 +544,6 @@ MonoBehaviour:
   crashParticles: {fileID: 4188588638109721303}
   levelLoader: {fileID: 3905072277727381152, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
   rocket: {fileID: 2778380882509624410}
-  attemptCounter: {fileID: 0}
 --- !u!65 &1734782369743365957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -556,8 +555,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4003844, y: 2.575428, z: 2.0282092}
-  m_Center: {x: 0.17042041, y: 0.4631014, z: -0.01006317}
+  m_Size: {x: 1.0032024, y: 2.575428, z: 0.6754802}
+  m_Center: {x: 0.04403019, y: 0.4631014, z: -0.017277509}
 --- !u!1 &4034913854777658084
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     // CACHE - e.g. references for readability or speed
     // STATE - private instance (member) variables
     [SerializeField] float mainThrust = 1000f;
-    [SerializeField] float rotationThrust = 1f;
+    [SerializeField] float rotationThrust = 120f;
     [SerializeField] AudioClip mainEngine;
 
     [SerializeField] ParticleSystem mainEngineParticles;

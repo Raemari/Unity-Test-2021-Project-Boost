@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
 
+    [SerializeField] AudioClip successSound;
+    [SerializeField] AudioClip crashSound;
+    private AudioSource audioSource;
+
     public KeyCode thrust {get; set;}
     public KeyCode left {get; set;}
     public KeyCode right {get; set;}
@@ -32,6 +36,17 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         attemptCounter = attemptCounterCanvas.GetComponent<AttemptCounter>();
+        audioSource = GetComponent<AudioSource>();
+    }
+    public void PlaySuccessSound()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(successSound);
+    }
+    public void PlayCrashSound()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(crashSound);
     }
 
     public void CheckIfFirstTimeToFinish()
@@ -66,10 +81,12 @@ public class GameManager : MonoBehaviour
     private void ShowGameFinish()
     {
         SceneManager.LoadScene(7); // finish game scene
+        PlaySuccessSound();
     }
     private void ShowPlayAgain()
     {
         SceneManager.LoadScene(8); //Play again scene
+        PlaySuccessSound();
     }
     public void ShowGameOverScreen()
     {
