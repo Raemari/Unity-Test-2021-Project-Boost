@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         attemptCounter = attemptCounterCanvas.GetComponent<AttemptCounter>();
         audioSource = GetComponent<AudioSource>();
     }
+
     public void PlaySuccessSound()
     {
         audioSource.Stop();

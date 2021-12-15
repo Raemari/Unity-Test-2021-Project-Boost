@@ -13,6 +13,9 @@ public class SettingsMenu : MonoBehaviour
     private Transform menuPanel;
     private Event keyEvent;
     private TextMeshProUGUI buttonText;
+    public TextMeshProUGUI thrustText;
+    public TextMeshProUGUI leftText;
+    public TextMeshProUGUI rightText;
     private KeyCode newKey;
     private bool waitingForKey;
 
@@ -33,6 +36,21 @@ public class SettingsMenu : MonoBehaviour
                 menuPanel.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = GameManager.GM.left.ToString();
             else if(menuPanel.GetChild(i).name == "RightKey")
                 menuPanel.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = GameManager.GM.right.ToString();
+        }
+    }
+    private void Update()
+    {
+        if(PlayerPrefs.HasKey("thrustKey"))
+        {
+            thrustText.text = PlayerPrefs.GetString("thrustKey");
+        }
+        if(PlayerPrefs.HasKey("leftKey"))
+        {
+            leftText.text = PlayerPrefs.GetString("leftKey");
+        }
+        if(PlayerPrefs.HasKey("rightKey"))
+        {
+            rightText.text = PlayerPrefs.GetString("rightKey");
         }
     }
     private void OnGUI()

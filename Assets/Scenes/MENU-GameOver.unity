@@ -429,53 +429,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 393348088589854968}
-    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Reset
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: LevelLoader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346984143813, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 393348088589854968}
-    - target: {fileID: 8581137346984143813, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Reset
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346984143813, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: LevelLoader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8581137346984143813, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8581137347114855207, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
       propertyPath: m_Name
       value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581137347114855207, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8581137347114855209, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
       propertyPath: m_RootOrder
@@ -523,14 +483,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
---- !u!114 &393348088589854968 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4269130144030629018, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
-  m_PrefabInstance: {fileID: 393348088589854967}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04170ab0a5c4e841a1d8a7dd66fc041, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

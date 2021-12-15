@@ -15,7 +15,6 @@ public class Oscillator : MonoBehaviour
         startingPosition = transform.position;
         Debug.Log(startingPosition);
     }
-
     // Update is called once per frame
     void Update()
     {
