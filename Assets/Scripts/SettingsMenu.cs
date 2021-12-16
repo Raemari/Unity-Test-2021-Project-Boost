@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-    public TMP_Dropdown resolutionDropdown;
-    private Resolution[] resolutions;
-
     private Transform menuPanel;
     private Event keyEvent;
     private TextMeshProUGUI buttonText;
@@ -19,17 +17,61 @@ public class SettingsMenu : MonoBehaviour
     private KeyCode newKey;
     private bool waitingForKey;
 
+    [SerializeField] AudioMixer audioMixer;
+    [SerializeField] string  volumeParameter = "Volume";
+    [SerializeField] Slider slider;
+    [SerializeField] float multiplier = 30f;
+    [SerializeField] Toggle toggle;
+    [SerializeField] TMP_Dropdown resolutionDropdown;
+    [SerializeField] TMP_Dropdown qualityDropdown;
+    private bool disableToggleEvent;
+    private Resolution[] resolutions;
 
-    void Start()
+
+    private void Awake()
     {
+        slider.onValueChanged.AddListener(HandleSliderValueChanged);
+        toggle.onValueChanged.AddListener(HandleToggleValueChanged);
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetFloat(volumeParameter, slider.value);
+    }
+    private void HandleSliderValueChanged(float value)
+    {
+        audioMixer.SetFloat(volumeParameter, Mathf.Log10(value) * multiplier);
+        disableToggleEvent = true;
+        toggle.isOn = slider.value > slider.minValue;
+        disableToggleEvent = false;
+    }
+    private void HandleToggleValueChanged(bool enableSound)
+    {
+        if(disableToggleEvent)
+            return;
+        if(enableSound)
+            slider.value = slider.maxValue;
+        else
+            slider.value = slider.minValue;
+    }
+
+    private void Start()
+    {
+        slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
+
         resolutions = Screen.resolutions;
         ResolutionDropDown();
+
+        int Quality = PlayerPrefs.GetInt("qualityIndex", 0);
+        qualityDropdown.value = Quality;
+
         menuPanel = transform.Find("Panel");
         waitingForKey = false;
 
-        for(int i = 0; i < menuPanel.childCount; i++) // iteration para mahanap yung children sa loob
+        //iteration to find the child inside parent
+        for(int i = 0; i < menuPanel.childCount; i++)
         {
-             //hinahanap yung child na May ganitong pangalan
+             //Finding the child with that specific name
             if(menuPanel.GetChild(i).name == "ThrustKey")
                 menuPanel.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = GameManager.GM.thrust.ToString(); // setting the text kung ano i-seset mo
             else if(menuPanel.GetChild(i).name == "LeftKey")
@@ -40,6 +82,7 @@ public class SettingsMenu : MonoBehaviour
     }
     private void Update()
     {
+        //updates the current text assigned for that button
         if(PlayerPrefs.HasKey("thrustKey"))
         {
             thrustText.text = PlayerPrefs.GetString("thrustKey");
@@ -119,7 +162,10 @@ public class SettingsMenu : MonoBehaviour
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            //if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            //code above is wrong because the screen reso 
+            //gets the desktop reso not the game's current reso
+            if(resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
@@ -133,14 +179,11 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height,Screen.fullScreen);
     }
-    public void SetVolume(float volume)
-    {   //the string volume corresponds to the naming of exposed parameter for Audio Mixer
-        audioMixer.SetFloat("Volume", volume);
-        Debug.Log("SOUND ADJUST");
-    }
+
     public void SetQuality (int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("qualityIndex", qualityIndex);
     }
     public void SetFullScreen(bool isFullscreen)
     {

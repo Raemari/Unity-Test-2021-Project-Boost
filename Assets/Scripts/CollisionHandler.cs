@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
-    // [SerializeField] AudioClip success;
-    // [SerializeField] AudioClip crash;
-
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] LevelLoader levelLoader;
@@ -20,7 +17,6 @@ public class CollisionHandler : MonoBehaviour
 
     private void Start()
     {
-         //audioSource = GetComponent<AudioSource>();
          levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
     }
 

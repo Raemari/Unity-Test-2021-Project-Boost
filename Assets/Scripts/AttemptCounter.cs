@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class AttemptCounter : MonoBehaviour
 {
@@ -23,7 +22,7 @@ public class AttemptCounter : MonoBehaviour
     }
     public void SetOriginalAttemptNumber()
     {
-        numberOfAttempts = 3;
+        numberOfAttempts = 10;
     }
 
     public void AttemptsCountMinus()

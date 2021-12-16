@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
-    public float transitionTime = 4f;
+    public float transitionTime = 2f;
     public AttemptCounter attemptCounter;
   
     public void LoadNextLevel()
@@ -17,7 +17,6 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(WaitForReloadLevel(SceneManager.GetActiveScene().buildIndex));
         attemptCounter.GetComponent<AttemptCounter>().AttemptsCountMinus();
-        //AttemptCounter.AC.AttemptsCountMinus();
     }
     IEnumerator LoadLevel(int levelIndex)
     {

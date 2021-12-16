@@ -422,6 +422,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1661392029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1959102907593538637, guid: 07a89b30fbccd774e83d4869b605eccd, type: 3}
+  m_PrefabInstance: {fileID: 1553754163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be78de692ded8f74a9f54ab4db3ee4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &393348088589854967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +440,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4269130144030629018, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: attemptCounter
+      value: 
+      objectReference: {fileID: 6995263624520700683, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
+    - target: {fileID: 4269130144030629018, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: transitionTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1661392029}
+    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581137346343340588, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581137346984143813, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1661392029}
+    - target: {fileID: 8581137346984143813, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581137346984143813, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8581137347114855207, guid: 0f88d833be2e5804699be25be87e9e7d, type: 3}
       propertyPath: m_Name
       value: GameOver
