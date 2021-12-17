@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   successSound: {fileID: 8300000, guid: f3090a44a7c0704409a27b498e65418a, type: 3}
   crashSound: {fileID: 8300000, guid: 89d47f7579a51e04583de5de6b3b1910, type: 3}
-  attemptCounter: {fileID: 2313375238525865001, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
+  attemptCounter: {fileID: 6995263624520700683, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
   attemptCounterCanvas: {fileID: 8230419325694151351, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
 --- !u!82 &5206372083994144370
 AudioSource:

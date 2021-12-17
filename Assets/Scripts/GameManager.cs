@@ -38,6 +38,13 @@ public class GameManager : MonoBehaviour
         attemptCounter = attemptCounterCanvas.GetComponent<AttemptCounter>();
         audioSource = GetComponent<AudioSource>();
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            ShowResetScreen();
+        }
+    }
 
     public void PlaySuccessSound()
     {
@@ -94,6 +101,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(6);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        Reset();
+    }
+    public void ShowResetScreen()
+    {
+        SceneManager.LoadScene(9);
         Reset();
     }
     public void Reset()

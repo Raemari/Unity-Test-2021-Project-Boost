@@ -301,8 +301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 434432871900083324}
-  transitionTime: 4
-  attemptCounter: {fileID: 2313375238525865001, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
+  transitionTime: 2
+  attemptC: {fileID: 6995263624520700683, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
+  attemptCounter: {fileID: 8230419325694151351, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
 --- !u!1 &434432872809812399
 GameObject:
   m_ObjectHideFlags: 0

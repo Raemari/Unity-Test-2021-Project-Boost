@@ -8,7 +8,6 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] LevelLoader levelLoader;
 
-    // private AudioSource audioSource;
     public GameObject rocket;
     private float delayRocket = 1f;
     bool isTransitioning = false;
@@ -17,7 +16,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void Start()
     {
-         levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+         levelLoader = FindObjectOfType<LevelLoader>();
     }
 
      void Update()

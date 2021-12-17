@@ -33,28 +33,6 @@ public class SettingsMenu : MonoBehaviour
         slider.onValueChanged.AddListener(HandleSliderValueChanged);
         toggle.onValueChanged.AddListener(HandleToggleValueChanged);
     }
-
-    private void OnDisable()
-    {
-        PlayerPrefs.SetFloat(volumeParameter, slider.value);
-    }
-    private void HandleSliderValueChanged(float value)
-    {
-        audioMixer.SetFloat(volumeParameter, Mathf.Log10(value) * multiplier);
-        disableToggleEvent = true;
-        toggle.isOn = slider.value > slider.minValue;
-        disableToggleEvent = false;
-    }
-    private void HandleToggleValueChanged(bool enableSound)
-    {
-        if(disableToggleEvent)
-            return;
-        if(enableSound)
-            slider.value = slider.maxValue;
-        else
-            slider.value = slider.minValue;
-    }
-
     private void Start()
     {
         slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
@@ -188,5 +166,25 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+    }
+    private void HandleSliderValueChanged(float value)
+    {
+        audioMixer.SetFloat(volumeParameter, Mathf.Log10(value) * multiplier);
+        disableToggleEvent = true;
+        toggle.isOn = slider.value > slider.minValue;
+        disableToggleEvent = false;
+    }
+    private void HandleToggleValueChanged(bool enableSound)
+    {
+        if(disableToggleEvent)
+            return;
+        if(enableSound)
+            slider.value = slider.maxValue;
+        else
+            slider.value = slider.minValue;
+    }
+    private void OnDisable()
+    {
+        PlayerPrefs.SetFloat(volumeParameter, slider.value);
     }
 }

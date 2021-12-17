@@ -1532,26 +1532,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1824789391, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
-      propertyPath: m_Range
-      value: 5.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 1824789391, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
-      propertyPath: m_Intensity
-      value: 8.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1824789391, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
-      propertyPath: m_SpotAngle
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 2184835519959318407, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
-      propertyPath: m_Name
-      value: LeftThruster Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143689572452144782, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7746518742947037164, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1599,10 +1579,6 @@ PrefabInstance:
     - target: {fileID: 8864672525545870954, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
       propertyPath: m_Name
       value: Rocket2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205006185665179034, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
-      propertyPath: m_Name
-      value: RightThruster Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b1b903d8781ae1458106d8d0bd22111, type: 3}
