@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     int levelIsUnlocked;
+    //will find all buttons available
     public Button[] levelButtons;
 
     private void Start()

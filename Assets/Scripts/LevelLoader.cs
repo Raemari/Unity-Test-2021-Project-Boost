@@ -8,6 +8,12 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 2f;
     public AttemptCounter attemptCounter;
+    public GameObject attemptCounterCanvas;
+    
+    private void Start()
+    {
+        attemptCounter = attemptCounterCanvas.GetComponentInChildren<AttemptCounter>();
+    }
   
     public void LoadNextLevel()
     {
@@ -16,7 +22,8 @@ public class LevelLoader : MonoBehaviour
     public void ReloadLevel()
     {
         StartCoroutine(WaitForReloadLevel(SceneManager.GetActiveScene().buildIndex));
-        attemptCounter.GetComponent<AttemptCounter>().AttemptsCountMinus();
+        attemptCounter.AttemptsCountMinus();
+        Debug.Log("Reload Level");
     }
     IEnumerator LoadLevel(int levelIndex)
     {

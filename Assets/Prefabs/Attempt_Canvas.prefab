@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 383.48, y: 201}
+  m_AnchoredPosition: {x: 383.48, y: 149.95}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1491657995222495180
@@ -247,6 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19d1148274fc3a4a977db032f97a7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAttempts: 10
+  numberOfAttempts: 5
   attemptText: {fileID: 1146105123516124355}
-  levelLoader: {fileID: 3905072277727381152, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
+  attemptCanvas: {fileID: 3533269881308036492}

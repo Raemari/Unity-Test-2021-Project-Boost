@@ -7,18 +7,24 @@ public class AttemptCounter : MonoBehaviour
 {
     public int numberOfAttempts = 10;
     public TextMeshProUGUI attemptText;
-    public LevelLoader levelLoader;
-
+    //public GameObject attemptCanvas;
 
     private void Start()
     {
         Time.timeScale = 1f;
+        StartCoroutine(WaitForGameOverScreen());
+        //attemptText = attemptCanvas.GetComponentInChildren<TextMeshProUGUI>();
+        //attemptText = FindObjectOfType<TextMeshProUGUI>();
     }
 
     private void Update()
     {
-        attemptText.text = "ATTEMPT:" + numberOfAttempts.ToString();
-        StartCoroutine(WaitForGameOverScreen());
+        SetCurrentAttempts(numberOfAttempts);
+        //attemptText.text = "ATTEMPT:" + numberOfAttempts.ToString();
+    }
+    private void SetCurrentAttempts(int numberofAttempts)
+    {
+        attemptText.SetText($"ATTEPT: {numberOfAttempts}");
     }
     public void SetOriginalAttemptNumber()
     {
@@ -28,6 +34,7 @@ public class AttemptCounter : MonoBehaviour
     public void AttemptsCountMinus()
     {
         numberOfAttempts -= 1;
+        Debug.Log("Attempt counter minus");
     }
     public void AddNumberOfAttempts()
     {
@@ -41,7 +48,8 @@ public class AttemptCounter : MonoBehaviour
             yield return new WaitForSeconds(2f);
             Time.timeScale = 0;
             Debug.Log("COROUTINE");
+            yield return null;
         }
-        yield return null;
+        // yield return null;
     }
 }
