@@ -2396,6 +2396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 434432872085127909, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3905072277727381152, guid: f4102235ee9bc4c4e8ffe933f1b740c2, type: 3}
       propertyPath: attemptText
       value: 
@@ -2757,9 +2761,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7820530462834468974, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 190.9
+    - target: {fileID: 6995263624520700683, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
+      propertyPath: originalNumberOfAttempts
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8230419325694151347, guid: 2f22e1b9b2579004ca9e832a6a115225, type: 3}
       propertyPath: m_Pivot.x

@@ -5,50 +5,63 @@ using TMPro;
 
 public class AttemptCounter : MonoBehaviour
 {
-    public int numberOfAttempts = 10;
-    public TextMeshProUGUI attemptText;
-    //public GameObject attemptCanvas;
+    [SerializeField] int originalNumberOfAttempts = 10;
+    [SerializeField] int attemptsLeft;
 
+    [SerializeField] TextMeshProUGUI attemptText;
+
+
+    private void Awake()
+    {
+        attemptsLeft = PlayerPrefs.GetInt("AttemptsLeft",originalNumberOfAttempts);
+        originalNumberOfAttempts = attemptsLeft;
+    }
     private void Start()
     {
         Time.timeScale = 1f;
         StartCoroutine(WaitForGameOverScreen());
-        //attemptText = attemptCanvas.GetComponentInChildren<TextMeshProUGUI>();
-        //attemptText = FindObjectOfType<TextMeshProUGUI>();
+        UpdateUI();
     }
 
     private void Update()
     {
-        SetCurrentAttempts(numberOfAttempts);
-        //attemptText.text = "ATTEMPT:" + numberOfAttempts.ToString();
+        // UpdateUI();
     }
-    private void SetCurrentAttempts(int numberofAttempts)
+
+    private void UpdateUI()
     {
-        attemptText.SetText($"ATTEPT: {numberOfAttempts}");
+        attemptText.text = "ATTEMPT:" + attemptsLeft.ToString();
     }
+
     public void SetOriginalAttemptNumber()
     {
-        numberOfAttempts = 10;
+        originalNumberOfAttempts = 10;
+        UpdateUI();
     }
 
     public void AttemptsCountMinus()
     {
-        numberOfAttempts -= 1;
+        PlayerPrefs.SetInt("AttemptsLeft",originalNumberOfAttempts--);
         Debug.Log("Attempt counter minus");
+        UpdateUI();
     }
     public void AddNumberOfAttempts()
     {
-        numberOfAttempts += 5;
+        //not sure if this is possible
+        //PlayerPrefs.SetInt("AttemptsLeft",originalNumberOfAttempts+5);
+        originalNumberOfAttempts += 5;
+        UpdateUI();
     }
     IEnumerator WaitForGameOverScreen()
     {
-        while(numberOfAttempts <= 0)
+        while(originalNumberOfAttempts == 0)
         {
             GameManager.GM.ShowGameOverScreen();
             yield return new WaitForSeconds(2f);
             Time.timeScale = 0;
             Debug.Log("COROUTINE");
             yield return null;
+            PlayerPrefs.DeleteAll();
         }
         // yield return null;
     }

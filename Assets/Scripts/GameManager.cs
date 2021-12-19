@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("firstTimeToFinish", 0);
             ShowGameFinish();
             AdditionalAttempts();
+            PlayerPrefs.Save();
         }
         else
         {

@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 2f;
     public AttemptCounter attemptCounter;
-    public GameObject attemptCounterCanvas;
+    // public TextMeshProUGUI attemptCounterCanvas;
     
     private void Start()
     {
-        attemptCounter = attemptCounterCanvas.GetComponentInChildren<AttemptCounter>();
+        //attemptCounterCanvas = GetComponentInChildren<TextMeshProUGUI>();
+        if(!attemptCounter)
+        {
+            attemptCounter = FindObjectOfType<AttemptCounter>();
+        }
     }
   
     public void LoadNextLevel()
