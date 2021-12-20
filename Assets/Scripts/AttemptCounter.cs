@@ -14,21 +14,20 @@ public class AttemptCounter : MonoBehaviour
     private void Awake()
     {
         attemptsLeft = PlayerPrefs.GetInt("AttemptsLeft",originalNumberOfAttempts);
-        originalNumberOfAttempts = attemptsLeft;
+        UpdateUI();
     }
     private void Start()
     {
         Time.timeScale = 1f;
         StartCoroutine(WaitForGameOverScreen());
-        UpdateUI();
     }
 
     private void Update()
     {
-        // UpdateUI();
+        UpdateUI();
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         attemptText.text = "ATTEMPT:" + attemptsLeft.ToString();
     }
@@ -54,7 +53,7 @@ public class AttemptCounter : MonoBehaviour
     }
     IEnumerator WaitForGameOverScreen()
     {
-        while(originalNumberOfAttempts == 0)
+        while(attemptsLeft == 0)
         {
             GameManager.GM.ShowGameOverScreen();
             yield return new WaitForSeconds(2f);

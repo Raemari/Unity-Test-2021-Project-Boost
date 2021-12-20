@@ -9,7 +9,6 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 2f;
     public AttemptCounter attemptCounter;
-    // public TextMeshProUGUI attemptCounterCanvas;
     
     private void Start()
     {
@@ -18,6 +17,7 @@ public class LevelLoader : MonoBehaviour
         {
             attemptCounter = FindObjectOfType<AttemptCounter>();
         }
+        attemptCounter.UpdateUI();
     }
   
     public void LoadNextLevel()
