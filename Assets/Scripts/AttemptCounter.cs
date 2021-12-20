@@ -14,7 +14,6 @@ public class AttemptCounter : MonoBehaviour
     private void Awake()
     {
         attemptsLeft = PlayerPrefs.GetInt("AttemptsLeft",originalNumberOfAttempts);
-        UpdateUI();
     }
     private void Start()
     {
@@ -40,14 +39,14 @@ public class AttemptCounter : MonoBehaviour
 
     public void AttemptsCountMinus()
     {
-        PlayerPrefs.SetInt("AttemptsLeft",originalNumberOfAttempts--);
+        PlayerPrefs.SetInt("AttemptsLeft",--originalNumberOfAttempts);
         Debug.Log("Attempt counter minus");
         UpdateUI();
     }
     public void AddNumberOfAttempts()
     {
         //not sure if this is possible
-        //PlayerPrefs.SetInt("AttemptsLeft",originalNumberOfAttempts+5);
+        PlayerPrefs.SetInt("AttemptsLeft",5+originalNumberOfAttempts);
         originalNumberOfAttempts += 5;
         UpdateUI();
     }

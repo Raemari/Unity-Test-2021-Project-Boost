@@ -23,21 +23,21 @@ public class CollisionHandler : MonoBehaviour
 
      void Update()
     {
-        RespondToDebugKeys();
+        //RespondToDebugKeys();
     }
 
-    private void RespondToDebugKeys()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-        levelLoader.LoadNextLevel();
-        LevelUnlocked();
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            collisionDisabled = !collisionDisabled; //toggle collision
-        }
-    }
+    // private void RespondToDebugKeys()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.L))
+    //     {
+    //     levelLoader.LoadNextLevel();
+    //     LevelUnlocked();
+    //     }
+    //     else if (Input.GetKeyDown(KeyCode.C))
+    //     {
+    //         collisionDisabled = !collisionDisabled; //toggle collision
+    //     }
+    // }
 
     private void OnCollisionEnter(Collision other)
     {

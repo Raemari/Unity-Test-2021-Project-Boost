@@ -37,7 +37,6 @@ public class SettingsMenu : MonoBehaviour
     {
         slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
 
-        resolutions = Screen.resolutions;
         ResolutionDropDown();
 
         int Quality = PlayerPrefs.GetInt("qualityIndex", 0);
@@ -133,12 +132,14 @@ public class SettingsMenu : MonoBehaviour
 
     public void ResolutionDropDown()
     {
-        int currentResolutionIndex = 0;
+        resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
         for(int i= 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
+            string option = resolutions[i].width + " x " + resolutions[i].height + "@" + resolutions[i].refreshRate + "hz";
             options.Add(option);
             //if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             //code above is wrong because the screen reso 
